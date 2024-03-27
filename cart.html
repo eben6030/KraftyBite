@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KraftyBite - My Cart</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>KraftyBite</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="cart.html">My Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="cart">
+        <div class="container">
+            <h2>My Cart</h2>
+            <ul id="cartItems">
+                <!-- Cart items will be dynamically added here using JavaScript -->
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript function to display cart items
+        window.onload = function() {
+            // Get cart items from localStorage
+            let cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [];
+
+            // Get the cart items UL element
+            let cartList = document.getElementById('cartItems');
+
+            // Iterate over cart items and create list items
+            cartItems.forEach(function(item) {
+                let li = document.createElement('li');
+                li.textContent = item;
+                cartList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
